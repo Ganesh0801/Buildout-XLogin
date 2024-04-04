@@ -25,6 +25,7 @@ const Login = () => {
        else{
         console.log("not");
         setWarn("Invalid username or password")
+        setLogin(false)
        }
     }
 
@@ -33,30 +34,31 @@ const Login = () => {
      <h1>Login Page</h1>
      
      {login ? <p>Welcome, user!</p> :(
-        <form style={{display:"block"}} >
+        <form  onSubmit={handleSubmit}>
              {warn && <p>{warn}</p>}
         <div>
-        <label htmlFor='username'>Username:</label>
-        <input 
-        id='username'
-        type='text'
-        value={name}
-        onChange={handleName}
-        required
-        />
-        </div>
-       <div>
-       <label htmlFor='password'>Password:</label>
-        <input 
-        id='password'
-        type='password'
-        value={password}
-        onChange={handlePass}
-        required
-        />
+            <label htmlFor='username'>Username:</label>
+                <input 
+                id='username'
+                type='text'
+                value={name}
+                onChange={handleName}
+                required
+                />
+        <br/>
+       
+            <label htmlFor='password'>Password:</label>
+                <input 
+                id='password'
+                type='password'
+                value={password}
+                onChange={handlePass}
+                required
+                />
        </div>
+       <br/>
        <button type='submit'
-       onSubmit={handleSubmit}>Submit</button>
+        onClick={handleSubmit}>Submit</button>
      </form>
      )}
      
