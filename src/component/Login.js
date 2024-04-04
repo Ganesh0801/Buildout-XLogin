@@ -19,11 +19,11 @@ const Login = () => {
     const handleSubmit = (e)=>{
         e.preventDefault()
        if(name === "user" && password === "password"){
-        setLogin(true)
         setWarn("")
-       }
+        setLogin(true)
+     }
        else{
-        console.log("not");
+      
         setWarn("Invalid username or password")
         setLogin(false)
        }
@@ -31,9 +31,10 @@ const Login = () => {
 
   return (
    <>
-     <h1>Login Page</h1>
+   <div>
+   <h1>Login Page</h1>
      
-     {login ? <p>Welcome, user!</p> :(
+     {login ? (<p>Welcome, user!</p>):(
         <form  onSubmit={handleSubmit}>
              {warn && <p>{warn}</p>}
         <div>
@@ -58,11 +59,12 @@ const Login = () => {
        </div>
        <br/>
        <button type='submit'
-        onClick={handleSubmit}>Submit</button>
+        onClick={handleSubmit}>Submit
+        </button>
      </form>
      )}
-     
-   </>
+   </div>
+</>
   )
 }
 
