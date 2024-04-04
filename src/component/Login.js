@@ -5,7 +5,7 @@ const Login = () => {
     const[name,setName] = useState("");
     const[password,setPassword]=useState("");
     const[login,setLogin]=useState(false);
-   const[warn,setWarn]=useState(false);
+   const[warn,setWarn]=useState("");
  
     const handleName = (e)=>{
         setName(e.target.value)
@@ -20,11 +20,11 @@ const Login = () => {
         e.preventDefault()
        if(name === "user" && password === "password"){
         setLogin(true)
-        setWarn(false)
+        setWarn("")
        }
        else{
         console.log("not");
-        setWarn(true)
+        setWarn("Invalid username or password")
        }
     }
 
@@ -32,9 +32,9 @@ const Login = () => {
    <>
      <h1>Login Page</h1>
      
-     {login ? <p>Welcome user ! </p> :(
+     {login ? <p>Welcome, user!</p> :(
         <form style={{display:"block"}} >
-             {warn && <p>Invalid username or password</p>}
+             {warn && <p>{warn}</p>}
         <div>
         <label htmlFor='username'>Username:</label>
         <input 
